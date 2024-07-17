@@ -16,7 +16,7 @@ AWS가 제공하는 서비스는 웹 사이트나 업무 시스템을 운영하�
 
 ### 종량제 요금 결제
 
-![aws01.png](..%2F..%2Fimage%2Faws01.png)
+![aws01.png](image%2Faws01.png)
 
 AWS는 **종량제** 요금 결제 방식이다. 사용한 만큼만 값을 지불하면 된다.
 
@@ -27,14 +27,14 @@ AWS는 관련 기술을 잘 모르는 사람도 운영할 수 있는 다양한 �
 
 ### 목적에 따라 다양한 서비스 제공
 
-![aws02.png](..%2F..%2Fimage%2Faws02.png)
+![aws02.png](image%2Faws02.png)
 
 AWS에서는 사용 목적에 따른 다양한 서비스를 제공한다.
 서버 전체, 관리에 필요한 기능 전체 외에도 분석 시스템, 감시 도구, 로봇 개발에 필요한 도구도 사용할 수 있다.
 
 ### AWS 에서 제공하는 서비스
-![aws03.png](..%2F..%2Fimage%2Faws03.png)
-![aws04.png](..%2F..%2Fimage%2Faws04.png)
+![aws03.png](image%2Faws03.png)
+![aws04.png](image%2Faws04.png)
 
 이 외에도 165개 이상의 서비스를 제공하고 있다.
 

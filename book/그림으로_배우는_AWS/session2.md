@@ -11,7 +11,7 @@ ex) Office365, File Storage Service 등등..
 
 ### 온프레미스와 임대
 
-![aws05.png](..%2F..%2Fimage%2Faws05.png)
+![aws05.png](image%2Faws05.png)
 
 온프레미스(on-premises)란 자사가 서버 등을 직접 구축하는 것을 말한다.
 - 소유권을 자사가 가지고 있는 것이 핵심이다.
@@ -29,7 +29,7 @@ ex) Office365, File Storage Service 등등..
 
 클라우드 컴퓨팅에서 가상화란 컴퓨터 작업에 필요한 물리적인 요소(ex. 메모리, OS, 하드디스크..) 등을 소프트웨어로 대체하는 것이다.
 
-![aws06.png](..%2F..%2Fimage%2Faws06.png)
+![aws06.png](image%2Faws06.png)
 
 가상 서버를 활용하면 물리 서버 위에 여러대의 가상 서버를 만드는 것도 가능하다.
 
@@ -37,25 +37,25 @@ ex) Office365, File Storage Service 등등..
 
 분산처리는 클라우드를 지탱하는 중요한 기술 중 하나로 기기 여러대에 분산하여 처리하는 방법을 말한다. 이용자 규모가 많은 서비스의 경우 서버 한 대로는 운용이 힘든데 이런 경우 같은 기능이나 정보를 가진 서버 여러 대에 접속 요청을 분배하여 처리하면 서버 부담을 줄일 수 있다.
 
-![aws07.png](..%2F..%2Fimage%2Faws07.png)
+![aws07.png](image%2Faws07.png)
 
 서버 여러 대의 요청을 분배하는 장치를 로드 밸런서(LB)라고 한다. 각 서버에 부하를 분산 시키거나 부하가 높아진 서버를 분리하는 역할도 하고 있다.
 AWS는 로드 밸런서로 ELB(ELastic Load Balancing)을 제공한다.
 
-![aws08.png](..%2F..%2Fimage%2Faws08.png)
+![aws08.png](image%2Faws08.png)
 
 <서버 다중화 예시 이미지>
 
 ### 클라우드 제공 형태
 
-![aws09.png](..%2F..%2Fimage%2Faws09.png)
+![aws09.png](image%2Faws09.png)
 
 클라우드를 설명할 때 `서비스의 제공 정도`를 기준으로 SaaS PaaS, IaaS로 구분하고 있다.
 - SaaS(Software as a Service) : 인프라나 플랫폼(OS) 뿐만 아니라 애플리케이션 까지 제공한다. SNS, 블로그, 웹 메일 서비스 등이 예시이다.
 - PaaS(Platform as a Service) : PaaS는 인프라와 플랫폼까지 제공하는 서비스이다. Elastic Beanstalk이 예시이다.
 - IaaS(Infrastructure as a Service) : IaaS는 인프라 까지만 제공한다. 네트워크 및 서버 등을 제공한다는 의미이다.
 
-![aws10.png](..%2F..%2Fimage%2Faws10.png)
+![aws10.png](image%2Faws10.png)
 
 ### 서버
 
@@ -73,13 +73,13 @@ AWS는 로드 밸런서로 ELB(ELastic Load Balancing)을 제공한다.
 
 OS(Operating System)란 컴퓨터를 움직이기 위한 소프트웨어로, 하드웨어와 소프트웨어의 사이에서 중간 역할을 한다.
 
-![aws11.png](..%2F..%2Fimage%2Faws11.png)
+![aws11.png](image%2Faws11.png)
 
 대표적 서버용 OS는 유닉스(UNIX) 계열과 윈도우 계열이 있다.
 
 ### 인스턴스
 
-![aws12.png](..%2F..%2Fimage%2Faws12.png)
+![aws12.png](image%2Faws12.png)
 
 인스턴스란 **실체**라는 의미이다. Amazon EC2의 서버도 인스턴스라고 부르는데 이는 **실제 가동되고 있는 가상화 컴퓨터**를 말한다.(물리적인 서버에 해당)
 - 기능으로서의 서버는 인스턴스라고 부르지 않는다.
@@ -91,7 +91,7 @@ OS(Operating System)란 컴퓨터를 움직이기 위한 소프트웨어로, 하
 - 네트워크 케이블을 유선으로 연결한 네트워크는 유선 LAN이다.
 - 무선 연결 네트워크는 무선 LAN이다.
 
-![aws13.png](..%2F..%2Fimage%2Faws13.png)
+![aws13.png](image%2Faws13.png)
 
 사내 LAN에는 파일 서버나 웹 서버, 시스템 동작을 위한 서버 등이 포함되어 있다.
 최근 이러한 서버군을 AWS와 같은 클라우드에 이관하는 경우가 증가하고 있다.
@@ -110,7 +110,7 @@ OS(Operating System)란 컴퓨터를 움직이기 위한 소프트웨어로, 하
 
 사설 IP 주소는 사내 LAN이나 가정 LAN에서 사용되는 IP 주소이다.
 
-![aws14.png](..%2F..%2Fimage%2Faws14.png)
+![aws14.png](image%2Faws14.png)
 
 공인 IP 주소의 수는 약 43억개로 한정되어 있다. 전 세계에 있는 PC에 각각 하나씩 할당할 수 없다는 의미이다.
 그렇기 때문에 가정이나 회사 같이 큰 단위로 공인 IP를 할당하고 이 안에 있는 PC는 가정이나 회사 내에만 통신하는 IP를 할당받는데 이것이 사설 IP이다.
@@ -119,7 +119,7 @@ OS(Operating System)란 컴퓨터를 움직이기 위한 소프트웨어로, 하
 
 DNS란 URL에 포함된 이름에 해당하는 서버의 IP 주소를 알려주는 방식이다. 열람자가 URL로 접속하면 실제로 DNS가 백그라운드에서 도메인명 (xxxxx.co.kr)에 해당하는 IP 주소를 확인하고 그 IP 주소를 가진 서버에 접속한다.
 
-![aws15.png](..%2F..%2Fimage%2Faws15.png)
+![aws15.png](image%2Faws15.png)
 
 DNS로 인해 열람자는 URL 만으로 해당 서버에 접속할 수 있다.
 AWS는 **Route 53**으로 DNS 서비스를 제공하고 있다.
