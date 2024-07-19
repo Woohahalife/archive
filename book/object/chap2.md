@@ -200,3 +200,81 @@ Movie avatar = new Movie("아바타",
 - `Movie`는 특정한 할인 정책에 묶이지 않는다.
 - 할인 정책을 구현한 클래스가 `DiscountPolicy`를 상속받고 있다면 어떤 클래스와도 협력이 가능하다.
 
+> `DiscountPolicy` 역시 특정한 할인 조건에 묶여있지 않고, `DiscountCondition`을 상속받은 어떤 클래스와도 협력이 가능하다.
+> 이것은 `DiscountPolicy`와 `DiscountCondition`가 추상적이기 때문에 가능한데 이를 **컨텍스트 독립성(Context Independency)**라는 개념으로 부르고 있다.
+
+
+##### 추상 클래스와 인터페이스 트레이드 오프
+
+```java
+public abstract class DefaultDiscountPolicy implements DiscountPolicy {  
+  
+    // 하나의 할인 정책은 여러개의 할인 조건을 포함할 수 있음  
+    private List<DiscountCondition> conditions = new ArrayList<>();  
+  
+    public DefaultDiscountPolicy(DiscountCondition... conditions) {  
+        this.conditions = Arrays.asList(conditions);  
+    }  
+  
+    public Money calculateDiscountAmount(Screening screening) {  
+        for(DiscountCondition each : conditions) { // Screening이 할인 조건을 만족시킬 경우 true            if(each.isSatisfiedBy(screening)) {  
+                return getDiscountAmount(screening);  
+            }
+        }  
+  
+        return Money.ZERO;  
+    }  
+  
+    abstract protected Money getDiscountAmount(Screening screening); // 실제 요금 계산 로직은 추상 메서드에 위임  
+}
+```
+
+```java
+public class NoneDiscountPolicy implements DiscountPolicy {  
+  
+    @Override  
+    public Money calculateDiscountAmount(Screening screening) {  
+        return Money.ZERO;  
+    }  
+}
+```
+
+기존 코드에서는 `NoneDiscountPolicy` 클래스의 코드를 살펴보면 `getDiscountAmount()` 메서드를 호출해 0원을 반환하고 있음. 하지만 `DiscountPolicy`에서는 할인 조건이 없을 시`getDiscountAmount()` 자체를 반환하고 있지 않음.
+
+부모 클래스인 `DiscountPolicy`는 할인 조건이 없는 경우 `getDiscountAmount()`를 호출하지 않고 0원을 반환함으로써 `DiscountPolicy`와 `NoneDiscountPolicy`를 개념적으로 결합시키고 있다.
+`DuscountCondition`이 없다면 0원을 반환할 것이라는 사실을 가정하고 있기 때문이다.
+
+- 이러한 고민을 해결해야할 문제라고 판단하고 `DiscountPolicy`를 인터페이스로 바꾸고 기존의 `DiscountPolicy`를 `DefaultDiscountPolicy` 라는 추상 클래스로 바꾼다.
+- `NoneDiscountPolicy`는 상위 인터페이스인 `DiscountPolicy`를 구현함으로써 이러한 개념적 혼란을 제거했다.
+
+![object11.png](image%2Fobject11.png)
+
+설계를 바꾼 것이 효율적이라는 생각도 있지만, 반면 `NoneDiscountPolicy` 만을 위해 인터페이스를 추가하는 것이 과하다는 생각이 들 수도 있다.
+
+구현과 관련된 모든 것들은 **트레이드 오프**의 대상이 될 수도 있다.
+우리가 작성하는 코드는 합당한 이유가 있어야 하고, 사소한 결정이라도 트레이드 오프를 통해 얻어진 결론과 그렇지 않은 결론 사이의 차이는 크다.
+
+##### 코드 재사용
+
+객체지향 설계 측면에서 코드 재사용을 위해서는 상속 보다는 **합성(composition)** 이 더 좋은 방법이다.
+**합성**은 **다른 객체의 인스턴스를 자신의 인스턴스 변수로 포함**해서 재사용하는 방법을 말한다.
+`Movie`가 `DiscountPolicy`의 코드를 재사용하는 방법이 합성이다.
+
+아래는 합성 방식을 상속하도록 변경한 다이어그램이다.
+
+![object12.png](image%2Fobject12.png)
+
+기존 방법과 기능적 관점에서는 완벽히 동일하지만 2가지 관점에서 설계에 안좋은 영향을 미친다.
+- 캡슐화를 위반한다.
+    - 상속은 부모 클래스의 구현이 자식 클래스에게 노출되기 때문에 캡슐화가 약화된다.
+    - 캡슐화의 약화는 자식 클래스가 부모 클래스에 강하게 결합되도록 만들기 때문에 부모 클래스의 변경이 자식 클래스의 변경을 유도하게 될 확률이 높다.
+- 설계를 유연하지 못하게 만든다.
+    - 상속은 부모 클래스와 자식 클래스 사이의 관계를 컴파일 시점에 결정한다.
+    - 따라서 실행 시점에 객체의 종류를 변경하는 것이 불가능하다.
+
+##### 합성
+
+**합성**은 **인터페이스에 정의된 메세지를 통해서만 코드를 재사용**하는 방법이다.
+- 합성은 구현을 효과적으로 캡슐화할 수 있다. (메세지를 통해서만 재사용)
+- 인스턴스 교체 용이성으로 인해 설계의 유연성이 높아진다.
+- 상속은 클래스를 통해 강하게 결합되는 데 비해 합성은 메세지를 통해 느슨하게 결합된다.
