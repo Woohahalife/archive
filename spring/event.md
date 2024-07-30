@@ -200,10 +200,10 @@ As a consequence, any **data access code triggered at this point will still "par
 코드 상에 엮여있는 의존성을 분리할 수 있지만 이벤트는 기본적으로 동기 방식으로 동작하기 때문에 코드 간 결합도를 낮추게 된다고 해도
 결국 회원 가입 로직이 종료(완료)되려면 이메일 발송을 마쳐야 한다.
 
-![img.png](img.png)
+![img.png](image/img.png)
 이벤트는 기본적으로 기존 로직을 처리하던 스레드에서 **동기 방식**으로 동작한다.
 
-![img_1.png](img_1.png)
+![img_1.png](image/img_1.png)
 
 요청에 대한 응답이 무사히 이루어졌지만 메일 발송 이벤트가 회원 가입과 같은 스레드에서 처리되어
 회원 가입 성능이 여전히 좋지 않다.
@@ -212,11 +212,11 @@ As a consequence, any **data access code triggered at this point will still "par
 이를 활용하면 **이벤트 처리를 기존 로직과 다른 스레드에서 실행**할 수 있다. 즉, 이벤트 발행 까지는 기존 로직에서 이루어지지만
 이벤트 리스너에서의 처리는 별개의 스레드에서 동작해 회원가입과 이메일 발송 기능을 완전히 분리할 수 있게 된다.
 
-![img_3.png](img_3.png)
+![img_3.png](image/img_3.png)
 
 이벤트 발행 까지는 회원가입과 같은 스레드에서 동작하지만 **이벤트 처리는 다른 스레드에서 동작**하게 된다.
 
-![img_2.png](img_2.png)
+![img_2.png](image/img_2.png)
 
 회원가입 과정에서 **이메일 발송 처리 작업을 분리**해 회원가입 응답에 소요되는 시간을 **단축**시킬 수 있었다.
 
