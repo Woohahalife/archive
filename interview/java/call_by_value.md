@@ -117,17 +117,17 @@ public class main
 기본형 (int, double, boolean 등)은 stack의 변수 안에 value 저장
 <br> 참조형 (Integer, Obejct, Array, Map 등) 은 stakc의 변수 값에는 객체의 주소 값, 객체는 별도의 Heap영역에 저장
 
-![img.png](img.png)
+![img.png](image/img.png)
 
 - primitive type : 원시값이 저장된다.
 - reference type : 실제 데이터는 heap 메모리에 저장되고, stack에는 주소값이 저장된다.
 
-![img_1.png](img_1.png)
+![img_1.png](image/img_1.png)
 
 - add_value 내 var_arge가 바뀐 것
 - var가 바뀐것 아님
 
-![img_2.png](img_2.png)
+![img_2.png](image/img_2.png)
 
 - arr과 arr_arg가 같은 주소값
 - 두 변수가 하나의 데이터를 동시에 참조
