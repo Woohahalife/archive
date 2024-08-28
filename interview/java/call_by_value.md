@@ -1,8 +1,8 @@
 # Call by Value 와 Call by Reference란?
 > `Call by Value`는 함수의 인자를 전달할 때 `값`을 전달하는 방식
 > <br> `Call by Reference`는 `주소`를 전달하는 방식
-
-📌 **자바는 `Call by Value`방식을 사용하며, `Call by Reference`는 존재하지 않는다.**
+ 
+**자바는 `Call by Value`방식을 사용하며, `Call by Reference`는 존재하지 않는다.**
 
 ```
 the Java authors choose to only include one simple idea - pass-by-value, 
@@ -82,7 +82,7 @@ public class MyClass {
 }
 ```
 
-## 🤔 Java에서 Call by Reference는 없다?
+## Java에서 Call by Reference는 없다?
 자바의 데이터형에는 두가지가 있다.
 - **기본형(primitive type)** : Boolean Type(boolean), Numeric Type(short, int, long, float, double, char)
 - **참조형(reference type)** : Class Type, Interface Type, Array Type, Enum Type, 기본형을 제외한 모든 것들
